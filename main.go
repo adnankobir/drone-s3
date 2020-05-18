@@ -95,6 +95,11 @@ func main() {
 			EnvVar: "PLUGIN_CACHE_CONTROL",
 		},
 		cli.StringFlag{
+			Name:   "storage-class",
+			Usage:  "set storage class to choose the best backend",
+			EnvVar: "PLUGIN_STORAGE_CLASS",
+		},
+		cli.StringFlag{
 			Name:  "env-file",
 			Usage: "source env file",
 		},
@@ -123,6 +128,7 @@ func run(c *cli.Context) error {
 		Exclude:      c.StringSlice("exclude"),
 		Encryption:   c.String("encryption"),
 		CacheControl: c.String("cache-control"),
+		StorageClass: c.String("storage-class"),
 		PathStyle:    c.Bool("path-style"),
 		DryRun:       c.Bool("dry-run"),
 	}
